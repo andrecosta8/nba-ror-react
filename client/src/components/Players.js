@@ -25,7 +25,6 @@ function Players() {
         return(
           <>
         <p key={player.id}>{player.first_name} {player.last_name}</p>
-        {/* <Link to= {team.abbreviation}>Players</Link> */}
         </>
         )
     })} </div>

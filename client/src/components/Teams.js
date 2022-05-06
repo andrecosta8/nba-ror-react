@@ -24,7 +24,8 @@ function Teams() {
             return(
               <>
             <p key = {team.id}>{team.full_name}</p>
-            <Link to= {team.abbreviation}>Players</Link>
+            <Link to= {team.abbreviation}>Players </Link>
+            <Link to= {'games/' + team.abbreviation}>Games</Link>
             </>
             )
         })} 
