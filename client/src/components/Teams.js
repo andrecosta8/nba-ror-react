@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from "axios";
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Teams() {
 
@@ -21,7 +22,10 @@ function Teams() {
        
         {allTeams && allTeams.map((team)=>{
             return(
+              <>
             <p key = {team.id}>{team.full_name}</p>
+            <Link to= {team.abbreviation}>Players</Link>
+            </>
             )
         })} 
     </div>
