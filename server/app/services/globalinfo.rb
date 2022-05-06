@@ -13,4 +13,8 @@ class Globalinfo
     def players
         self.class.get('/players', @options)
     end
+
+    def games
+        self.class.get('/games', @options)
+    end    
 end
