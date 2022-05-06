@@ -10,4 +10,7 @@ class Globalinfo
         self.class.get('/teams', @options)
     end
 
+    def players
+        self.class.get('/players', @options)
+    end
 end
