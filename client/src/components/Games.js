@@ -15,7 +15,6 @@ function Games() {
         const filterdGames = gamesList.filter((game)=>{
             return (game.home_team.abbreviation == params.abbreviation || game.visitor_team.abbreviation == params.abbreviation)
         })
-        console.log(filterdGames)
         setGames(filterdGames)
       }
       getTeamGamesFromApi();
@@ -27,6 +26,7 @@ function Games() {
         return(
           <>
         <p key={game.id}>{game.id}</p>
+        <Link to={'/games/' + game.id}>Stats</Link>
         </>
         )
     })}   

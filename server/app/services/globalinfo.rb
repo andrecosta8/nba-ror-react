@@ -20,5 +20,6 @@ class Globalinfo
     
     def stats
         self.class.get('/stats', @options)
-    end    
+    end 
+    
 end

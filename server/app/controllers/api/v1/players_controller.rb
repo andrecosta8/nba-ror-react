@@ -4,7 +4,7 @@ class Api::V1::PlayersController < ApplicationController
         @players = @globalinfo.players
         render json: @players
     end
-
+    
     def set_globalinfo
         @globalinfo = Globalinfo.new
     end

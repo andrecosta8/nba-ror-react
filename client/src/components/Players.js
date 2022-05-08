@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -25,6 +25,7 @@ function Players() {
         return(
           <>
         <p key={player.id}>{player.first_name} {player.last_name}</p>
+        <Link to= {'players/' + player.id}>Stats</Link>
         </>
         )
     })} </div>
