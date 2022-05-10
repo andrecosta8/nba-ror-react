@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Card } from 'react-bootstrap';
 
 function Players() {
     const params = useParams();
@@ -22,16 +23,20 @@ function Players() {
     },[])
 
   return (
-    <div>
+    <div className='playersPage'>
         {players && players.map((player)=>{
         return(
-          <>
-        <p key={player.id}>{player.first_name} {player.last_name}</p>
-        <Link to= {player.id + '/stats'}>Stats</Link>
-        </>
+          <Card key = {player.id} className='playercard' style={{ width: '18rem' }}>
+            <Card.Body>
+              <Card.Title> {player.last_name} </Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">{player.first_name}</Card.Subtitle>
+              <Link to= {player.id + '/stats'}><button type="button" class="btn btn-primary">Statistics</button></Link>
+            </Card.Body>
+          </Card>
         )
     })} </div>
   )
 }
 
 export default Players
+

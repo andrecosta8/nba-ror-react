@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
 
 function GamesStats() {
     const params = useParams();
@@ -11,14 +12,28 @@ function GamesStats() {
     useEffect(()=>{ 
       async function getStatsFromApi(){
         const getStats = await axios.get(`http://localhost:3001/api/v1/games/${params.id}`)
-        const gameStats = getStats.data
-        console.log(gameStats)
-        setGameStats(gameStats)
+        const gameInfo = getStats.data
+        console.log(gameInfo)
+        setGameStats(gameInfo)
       }
       getStatsFromApi();
     },[])
   return (
-    <div>GamesStats</div>
+    <div>
+       <Card key={gameStats.id} className='teamStatscard' style={{ width: '18rem' }}>
+      <Card.Body>
+       <Card.Title>{gameStats.home_team.full_name} vs {gameStats.visitor_team.full_name}</Card.Title>
+       <Card.Subtitle className="mb-2 text-muted">Result: {gameStats.home_team_score} - {gameStats.visitor_team_score} </Card.Subtitle>
+     <Card.Text>
+       Seasson: {gameStats.season}
+       <br></br>
+        Date: {gameStats.date.split(' ')[0]}
+       <br></br>
+       Stage: {gameStats.status}
+      </Card.Text>
+    </Card.Body>
+   </Card>
+   </div>
   )
 }
 
