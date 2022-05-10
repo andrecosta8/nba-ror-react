@@ -2,7 +2,8 @@ class Globalinfo
     include HTTParty
     base_uri 'https://rho-web-challenge-1.herokuapp.com'
 
-    def initialize
+  
+    def initialize()
         @options = {}
     end
 
@@ -14,12 +15,16 @@ class Globalinfo
         self.class.get('/players', @options)
     end
 
+    def playerstats(id)
+        self.class.get("/players/#{id}/stats", @options)
+    end
+
     def games
         self.class.get('/games', @options)
-    end   
-    
+    end 
+
     def stats
         self.class.get('/stats', @options)
     end 
-    
+
 end

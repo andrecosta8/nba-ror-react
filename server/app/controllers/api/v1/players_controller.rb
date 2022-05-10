@@ -4,8 +4,12 @@ class Api::V1::PlayersController < ApplicationController
         @players = @globalinfo.players
         render json: @players
     end
-    
+    def playerstats
+        @playerstats = @globalinfo.playerstats(params["id"])
+        render json: @playerstats
+    end
     def set_globalinfo
-        @globalinfo = Globalinfo.new
+        
+        @globalinfo = Globalinfo.new()
     end
 end

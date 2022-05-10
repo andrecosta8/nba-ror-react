@@ -3,8 +3,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :teams
       resources :players
+      get "players/:id/stats", to: "players#playerstats"
       resources :games
       resources :stats
+      resources :playerstats 
     end
   end
 end

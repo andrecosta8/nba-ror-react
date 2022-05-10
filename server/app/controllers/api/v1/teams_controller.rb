@@ -4,7 +4,6 @@ class Api::V1::TeamsController < ApplicationController
         @teams = @globalinfo.teams
         render json: @teams
     end
-
     def set_globalinfo
         @globalinfo = Globalinfo.new
     end
