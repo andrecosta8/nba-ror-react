@@ -22,9 +22,9 @@ function App() {
         <Route element={<LayoutComponent />} >
         <Route path="/" element={<Home />} /> 
         <Route path="/teams" element={<Teams />} />
-        <Route path="/teams/:abbreviation" element={<Players/>} />
-        <Route path="/teams/:abbreviation/players/:id" element={<PlayerStats />} />
-        <Route path="/teams/games/:abbreviation" element={<Games />} />
+        <Route path="/teams/:id/players" element={<Players/>} />
+        <Route path="/teams/:id/players/:id/stats" element={<PlayerStats />} />
+        <Route path="/teams/games/:id" element={<Games />} />
         <Route path="/games/:id" element={<GamesStats />} />
         
         </Route>

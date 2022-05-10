@@ -9,11 +9,15 @@ function Games() {
     const [games, setGames] = useState([]);
 
     useEffect(()=>{ 
+  
       async function getTeamGamesFromApi(){
         const getTeamGames = await axios.get('http://localhost:3001/api/v1/games')
         const gamesList = getTeamGames.data.data
+        console.log(gamesList)
         const filterdGames = gamesList.filter((game)=>{
-            return (game.home_team.abbreviation == params.abbreviation || game.visitor_team.abbreviation == params.abbreviation)
+            if (game.home_team.id == params.id || game.visitor_team.id == params.id){
+              return game
+            }
         })
         setGames(filterdGames)
       }
@@ -25,7 +29,7 @@ function Games() {
       {games && games.map((game)=>{
         return(
           <>
-        <p key={game.id}>{game.id}</p>
+        <p key={game.id}>{game.id} {game.home_team.abbreviation} vs {game.visitor_team.abbreviation}</p>
         <Link to={'/games/' + game.id}>Stats</Link>
         </>
         )

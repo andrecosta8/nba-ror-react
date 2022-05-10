@@ -11,9 +11,11 @@ function Players() {
       async function getPlayersFromApi(){
         const getPlayers = await axios.get('http://localhost:3001/api/v1/players')
         const playersList = getPlayers.data.data
+        console.log(playersList)
         const filteredList = playersList.filter((player)=>{
-            return (player.team.abbreviation == params.abbreviation)
+            return (player.team.id == params.id)
         })
+        console.log(filteredList)
         setAllPlayers(filteredList)
       }
       getPlayersFromApi();
@@ -25,7 +27,7 @@ function Players() {
         return(
           <>
         <p key={player.id}>{player.first_name} {player.last_name}</p>
-        <Link to= {'players/' + player.id}>Stats</Link>
+        <Link to= {player.id + '/stats'}>Stats</Link>
         </>
         )
     })} </div>

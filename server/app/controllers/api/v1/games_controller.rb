@@ -4,6 +4,10 @@ class Api::V1::GamesController < ApplicationController
         @games = @globalinfo.games
         render json: @games  
     end
+    def show
+        @gamestats = @globalinfo.gamestats(params["id"])
+        render json: @gamestats
+    end
 
     def set_globalinfo
         @globalinfo = Globalinfo.new

@@ -5,8 +5,8 @@ Rails.application.routes.draw do
       resources :players
       get "players/:id/stats", to: "players#playerstats"
       resources :games
-      resources :stats
-      resources :playerstats 
+      get "games/:id", to: "games#show"
+  
     end
   end
 end

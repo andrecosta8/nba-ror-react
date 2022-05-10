@@ -8,8 +8,8 @@ class Api::V1::PlayersController < ApplicationController
         @playerstats = @globalinfo.playerstats(params["id"])
         render json: @playerstats
     end
+
     def set_globalinfo
-        
         @globalinfo = Globalinfo.new()
     end
 end

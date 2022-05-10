@@ -11,7 +11,7 @@ function Teams() {
       async function getTeamsFromApi(){
         const getTeams = await axios.get('http://localhost:3001/api/v1/teams')
         const teamsList = getTeams.data.data
-        
+        console.log(teamsList)
         setAllTeams(teamsList)
       }
       getTeamsFromApi();
@@ -24,8 +24,8 @@ function Teams() {
             return(
               <>
             <p key = {team.id}>{team.full_name}</p>
-            <Link to= {team.abbreviation}>Players </Link>
-            <Link to= {'games/' + team.abbreviation}>Games</Link>
+            <Link to= {team.id + '/players'}>Players </Link>
+            <Link to= {'games/' + team.id}>Games</Link>
             </>
             )
         })} 

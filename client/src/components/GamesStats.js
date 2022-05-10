@@ -10,12 +10,10 @@ function GamesStats() {
 
     useEffect(()=>{ 
       async function getStatsFromApi(){
-        const getStats = await axios.get('http://localhost:3001/api/v1/stats')
-        const statsList = getStats.data.data
-        const filteredGameStats = statsList.find(elem => elem.game.id == params.id)
-                    
-        console.log(statsList, params.id, ">>>>>>>>" ,filteredGameStats)
-        setGameStats(statsList)
+        const getStats = await axios.get(`http://localhost:3001/api/v1/games/${params.id}`)
+        const gameStats = getStats.data
+        console.log(gameStats)
+        setGameStats(gameStats)
       }
       getStatsFromApi();
     },[])
