@@ -1,9 +1,13 @@
 class Api::V1::GamesController < ApplicationController
-    before_action :set_globalinfo
-    def index
+    before_action :set_globalinfo # runs set_globalinfo before index and show
+
+    # render all games after getting data from globalinfo
+    def index 
         @games = @globalinfo.games
         render json: @games  
-    end
+    end 
+
+    # send id from taken from frontend to globalinfo and then render data 
     def show
         @gamestats = @globalinfo.gamestats(params["id"])
         render json: @gamestats
