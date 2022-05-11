@@ -1,16 +1,15 @@
 import React from 'react'
 import image from '../images/logo-nba.png'
-import { Spinner } from 'react-bootstrap'
+import Spinner from 'react-bootstrap/Spinner'
 
 function Home() {
   return (
     <div>
-      {image ? <img src={image} class="img-fluid" alt="nba"></img> : <Spinner animation="border" role="status">
-  <span className="visually-hidden">Loading...</span>
-</Spinner> }
-      
+      {image ? <img src={image} className="img-fluid" alt="nba"></img> :
+        <Spinner animation="border" variant="info" />
+      }
     </div>
   )
-}
+} //Home page image
 
 export default Home

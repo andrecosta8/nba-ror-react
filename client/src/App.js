@@ -8,6 +8,8 @@ import Players from './components/Players';
 import Games from './components/Games';
 import PlayerStats from './components/PlayerStats';
 import GamesStats from './components/GamesStats';
+import NotFound from './Error Pages/NotFound';
+import Error from './Error Pages/Error';
 
 
 
@@ -26,8 +28,10 @@ function App() {
         <Route path="/teams/:id/players/:id/stats" element={<PlayerStats />} />
         <Route path="/teams/games/:id" element={<Games />} />
         <Route path="/games/:id" element={<GamesStats />} />
-        
+        <Route path="/*" element={ <NotFound /> }/>
+        <Route path="/error" element={ <Error />}/>
         </Route>
+        
       </Routes>
     </div>
   );
